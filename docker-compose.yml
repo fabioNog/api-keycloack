@@ -44,6 +44,17 @@ services:
             - 3310:3306
         networks: 
             - api-keycloack_microservices
+    
+    keycloak:
+        image: jboss/keycloak:latest
+        environment:
+            - KEYCLOACK_USER=admin
+            - KEYCLOACK_PASSWORD=admin
+            - DB_VENDOR=h2
+        ports: 
+            - 8080:8080
+        networks: 
+            - api-keycloack_microservices
 
 networks: 
     api-keycloack_microservices:

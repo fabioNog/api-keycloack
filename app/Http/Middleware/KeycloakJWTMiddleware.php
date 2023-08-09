@@ -28,7 +28,8 @@ class KeycloakJWTMiddleware
         }
 
          // Obter a chave pública do Keycloak para verificar a assinatura do token
-         $keycloakPublicKeyResponse = Http::get('http://hopeful_feistel:8080/realms/my-realm/protocol/openid-connect/certs');
+         $keycloakPublicKeyResponse = Http::get('http://localhost:8080/auth/realms/my-realm/protocol/openid-connect/certs');
+         dd($keycloakPublicKeyResponse);
          $keycloakPublicKey = $keycloakPublicKeyResponse->json('keys')[0]['x5c'][0];
 
         try {
