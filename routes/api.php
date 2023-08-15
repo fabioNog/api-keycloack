@@ -23,7 +23,7 @@ use App\Http\Controllers\ProductController;
 });*/
 
 // Rotas protegidas pelo middleware keycloak.jwt
-Route::middleware('keycloak.jwt')->group(function () {
+Route::middleware('App\Http\Middleware\KeycloakJWTMiddleware')->group(function () {
     // Rotas da tabela suppliers
     Route::get('/suppliers', [SupplierController::class, 'index']);
     Route::get('/suppliers/{id}', [SupplierController::class, 'show']);
